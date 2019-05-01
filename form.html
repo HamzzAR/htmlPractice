@@ -1,0 +1,41 @@
+<html>
+
+<script>
+function Message(){
+  window.alert("Hello Hamza");
+}
+
+function Message2(){
+  window.document.frm.t1.value = "Hello my friends"
+  window.alert(window.document.frm.t2.value);
+}
+
+function addition(){
+  var a,b,c;
+  a = window.document.frm.t1.value;
+  b = window.document.frm.t2.value;
+  if (a == "") {
+    window.alert("First number is missing!")
+    window.document.frm.t1.focus();
+  }else if (b == "") {
+    window.alert("Second number is missing!")
+    window.document.frm.t2.focus();
+  }else {
+    c = parseInt(a)+parseInt(b);
+    window.document.frm.t3.value = c;
+  }
+
+}
+
+</script>
+
+<form name="frm">
+
+  User Name: <input type="text" name="t1"> <br>
+  Password: <input type="text" name="t2"> <br>
+  Result: <input type="text" name="t3">
+  <input type="Button" value="Login" name="Btn" onclick="addition()"> <br>
+
+</form>
+
+</html>
