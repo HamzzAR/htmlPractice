@@ -1,0 +1,34 @@
+<html>
+
+<form>
+
+<input name="First input">
+<input name="Second input">
+<input type="button" value="555">
+<input>
+</form>
+
+<input type="button" value="555" onclick="add()">
+
+
+<script>
+
+function add(){
+
+  var len = window.document.forms[0].elements.length;
+  var ref = window.document.forms[0];
+  for (var i = 0; i < len; i++) {
+    if (ref.elements[i].type == "text") {
+      if (ref.elements[i].value == "") {
+        window.alert("Element "+ref.elements[i].name+" is empty")
+        ref.elements[i].focus();
+        break;
+      }
+    }
+
+  }
+}
+
+</script>
+
+</html>
