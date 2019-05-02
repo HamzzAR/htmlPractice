@@ -1,0 +1,34 @@
+<html>
+
+<div style="color:green; font-size:40px; position:absolute; top:100px; left:100px" onmousemove="increment1()">
+    Increment
+</div>
+
+
+<div style="color:green; position:absolute; top:30px; left:450">
+    <form>
+    <input type="text" name="num">
+    </form>
+</div>
+
+
+<div style="font-size:40px; color:green; position:absolute; top:100px; left:900px" onmousemove="decrement1()">
+    Decrement
+</div>
+
+
+<script>
+var ele = window.document.forms[0].elements[0];
+ele.value = 0;
+function increment1(){
+    ele.value = parseInt(ele.value)+1;
+}
+
+function decrement1(){
+    ele.value = parseInt(ele.value)-1;
+}
+
+
+</script>
+
+</html>

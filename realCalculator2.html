@@ -1,0 +1,130 @@
+<html>
+
+<center><h1>Real Calculator</h1></center>
+
+<form name="frm">
+<center><input type="text" name="answer"></center> <br><br>
+</form>
+
+<center><table>
+  <tr>
+    <form>
+    <td><input type="button" value="7" name="Btn" onclick="digitBtn('7')"></td>
+    <td><input type="button" value="8" name="Btn" onclick="digitBtn('8')"></td>
+    <td><input type="button" value="9" name="Btn" onclick="digitBtn('9')"></td>
+    <td><input type="button" value="/" name="Btn" onclick="operator1('/')" onmouseover="showHelp('/')" onmouseout="showHelp2('/')"></td>
+    </form>
+  </tr>
+  <tr>
+    <td> <input type="Button" value="4" name="Btn" onclick="digitBtn('4')"></td>
+    <td><input type="Button" value="5" name="Btn" onclick="digitBtn('5')"></td>
+    <td><input type="Button" value="6" name="Btn" onclick="digitBtn('6')"></td>
+    <td><input type="Button" value="x" name="Btn" onclick="operator1('x')" onmouseover="showHelp('x')" onmouseout="showHelp2('x')"></td>
+  </tr>
+  <tr>
+    <td><input type="Button" value="1" name="Btn" onclick="digitBtn('1')"></td>
+    <td><input type="Button" value="2" name="Btn" onclick="digitBtn('2')"></td>
+    <td><input type="Button" value="3" name="Btn" onclick="digitBtn('3')"></td>
+    <td><input type="Button" value="-" name="Btn" onclick="operator1('-')" onmouseover="showHelp('-')" onmouseout="showHelp2('-')"></td>
+  </tr>
+  <tr>
+    <td><input type="Button" value="0" name="Btn" onclick="digitBtn('0')"></td>
+    <td><input type="Button" value="C" name="Btn" onclick="operator1('c')" onmouseover="showHelp('c')" onmouseout="showHelp2('c')"></td>
+    <td><input type="Button" value="=" name="Btn" onclick="operator1('=')" onmouseover="showHelp('=')" onmouseout="showHelp2('=')"></td>
+    <td><input type="Button" value="+" name="Btn" onclick="operator1('+')" onmouseover="showHelp('+')" onmouseout="showHelp2('+')"></td>
+  </tr>
+
+</table></center> <br><br>
+
+<form name="frm2">
+<center><input type="text" name="help" style="width:250px; height:50px"></center> <br><br>
+</form>
+
+<script>
+var no1,no2,operation;
+no1 = no2 = operator = "";
+function digitBtn(d){
+  window.document.frm.answer.value += d;
+}
+
+function operator1(o){
+  switch(o) {
+  case "+":
+    operation = "+";
+    no1 = window.document.frm.answer.value;
+    window.document.frm.answer.value = "";
+    break;
+  case "-":
+    operation = "-";
+    no1 = window.document.frm.answer.value;
+    window.document.frm.answer.value = "";
+    break;
+  case "x":
+    operation = "x";
+    no1 = window.document.frm.answer.value;
+    window.document.frm.answer.value = "";
+    break;
+  case "/":
+    operation = "/";
+    no1 = window.document.frm.answer.value;
+    window.document.frm.answer.value = "";
+    break;
+  }
+
+if (o == "=") {
+    no2 = window.document.frm.answer.value;
+    switch(operation) {
+    case "+":
+      window.document.frm.answer.value = parseInt(no1)+parseInt(no2);
+      break;
+    case "-":
+      window.document.frm.answer.value = parseInt(no1)-parseInt(no2);
+      break;
+    case "x":
+      window.document.frm.answer.value = parseInt(no1)*parseInt(no2);
+      break;
+    case "/":
+      window.document.frm.answer.value = parseInt(no1)/parseInt(no2);
+      break;
+    }
+  }
+
+  if (o == "c") {
+    window.document.frm.answer.value = "";
+    operation =no1=no2="";
+  }
+}
+
+function showHelp(d){
+    switch (d) {
+        case "+":
+            window.document.frm2.help.value = "Use this operator for addition";
+            break;
+        case "-":
+            window.document.frm2.help.value = "Use this operator for substraction";
+            break;
+        case "x":
+            window.document.frm2.help.value = "Use this operator for multipliation";
+            break;
+        case "/":
+            window.document.frm2.help.value = "Use this operator for division";
+            break;
+        case "=":
+            window.document.frm2.help.value = "Use this operator for to display result";
+            break;
+        case "c":
+            window.document.frm2.help.value = "Use this operator to clear the numbers";
+            break;
+
+    }
+
+}
+
+function showHelp2(){
+    window.document.frm2.help.value = "";
+}
+
+
+</script>
+
+</html>
