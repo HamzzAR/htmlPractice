@@ -1,0 +1,62 @@
+<html>
+
+<b><h1><center>Marks Calculations</center></h1></b><br>
+
+<form name="frm">
+
+  Name: <input type="text" name="nameTf"> <br>
+  Physics: <input type="text" name="phyTf"> <br>
+  Chemistry: <input type="text" name="cheTf"> <br>
+  Maths: <input type="text" name="mathTf"> <br><br>
+
+  <input type="Button" value="Calculate" name="Btn" onclick="calculate()"> <br><br>
+
+  Total Marks: <input type="text" name="totalTf"> <br>
+  Percentage: <input type="text" name="perTf"> <br>
+  Results: <input type="text" name="resultTf" style="width:200px"> <br>
+
+</form>
+
+
+<script>
+
+function calculate(){
+  var phy,che,maths,totalMarks,per,res
+  phy = window.document.frm.phyTf.value;
+  che = window.document.frm.cheTf.value;
+  maths = window.document.frm.mathTf.value;
+  totalMarks = parseInt(phy) + parseInt(che) + parseInt(maths);
+  per = (totalMarks/450)*100;
+
+  if (phy == "") {
+    window.alert("Physics marks missing")
+    window.document.frm.phyTf.focus();
+  }else if (che == "") {
+    window.alert("Chemistry marks missing")
+    window.document.frm.cheTf.focus();
+  }else if (maths == "") {
+    window.alert("Maths marks missing")
+    window.document.frm.mathTf.focus();
+  }else {
+    if (per >= 90) {
+      res = "A+"
+    }else if (per >= 80 && per < 90) {
+      res = "A";
+    }else if (per >= 70 && per < 80) {
+      res = "B"
+    }else if (per >= 60 && per < 70) {
+      res = "C"
+    }else {
+      res = "Fail"
+    }
+
+    window.document.frm.totalTf.value = totalMarks;
+    window.document.frm.perTf.value = per;
+    window.document.frm.resultTf.value = window.document.frm.nameTf.value + " achieved grade: "+res;
+  }
+
+}
+
+</script>
+
+</html>
