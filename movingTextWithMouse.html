@@ -1,0 +1,14 @@
+<html>
+<body onmousemove="moving()">
+    <span id="s" style="position:absolute; top:0; left:0"> The Hamza </span>
+</body>
+
+<script>
+    function moving(){
+        var span = window.document.getElementById("s");
+        span.style.top = window.event.clientY;
+        span.style.left = window.event.clientX;
+    }
+</script>
+
+</html>

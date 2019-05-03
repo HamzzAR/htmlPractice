@@ -1,0 +1,68 @@
+<html>
+
+<body onmousemove="moving1()">
+
+<center><input type="text" value="hello" id="ip" onmouseover="getText()"></center>
+
+<div style="background-color:Green; width:50px; height:50px" onmouseover="setColor('g')">
+
+</div>
+
+<div style="background-color:Red; width:50px; height:50px" onmouseover="setColor('r')">
+
+</div>
+
+<div style="background-color:Yellow; width:50px; height:50px" onmouseover="setColor('y')">
+
+</div>
+
+<div  style="background-color:Blue; width:50px; height:50px" onmouseover="setColor('b')">
+
+</div>
+
+<span id="s" style="position:absolute; top:0; left:0"> Hamza </span>
+
+</body>
+
+<script>
+    var size = 20;
+    var span = window.document.getElementById('s');
+    function moving1(){
+        span.style.top = window.event.clientY;
+        span.style.left = window.event.clientX + 10;
+
+        if (window.event.ctrlKey == true) {
+            size++;
+            span.style.fontSize = size;
+        }
+        if (window.event.altKey == true) {
+            size--;
+            span.style.fontSize = size;
+        }
+    }
+
+    function getText(){
+        var t = window.document.getElementById('ip');
+        span.innerHTML = t.value;
+    }
+
+    function setColor(c){
+        switch (c) {
+            case "g":
+                span.style.color = "green";
+                break;
+            case "b":
+                span.style.color = "blue";
+                break;
+            case "r":
+                span.style.color = "Red";
+                break;
+            case "y":
+                span.style.color = "Yellow";
+                break;
+
+        }
+    }
+</script>
+
+</html>

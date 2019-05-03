@@ -1,0 +1,32 @@
+<html>
+
+<form action="checkSubmitForm.html" onsubmit="return actionForm()">
+Name: <input type="text" name="n" onkeydown="myFun()"> <span id="n1" style="color:red; visibility:hidden">*Name is missing</span><br>
+Past Code: <input type="text" name="p" onkeydown="myFun()"> <span id="p1" style="color:red; visibility:hidden">*Postcode is missing</span><br><br>
+<input type="image" style="width:50px; height:50px" src="tick.png" onclick="actionForm()">
+</form>
+
+<script>
+
+function actionForm(){
+    var r = true;
+    if (window.document.forms[0].elements[0].value == "") {
+        window.document.getElementById('n1').style.visibility = "visible";
+        r = false;
+    }
+    if (window.document.forms[0].elements[1].value == "") {
+        window.document.getElementById('p1').style.visibility = "visible";
+        r = false;
+    }
+
+    return r;
+}
+
+function myFun(){
+        window.document.getElementById('n1').style.visibility = "hidden";
+        window.document.getElementById('p1').style.visibility = "hidden";
+    }
+
+</script>
+
+</html>
